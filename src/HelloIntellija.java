@@ -1,30 +1,59 @@
-import java.util.Scanner;
 
-public class HelloIntellija {
+    import java.util.Scanner;
 
-    public static void main(String[] args) {
-        // Create a Scanner object to read input
-        Scanner scanner = new Scanner(System.in);
+    public class HelloIntellija {
 
-        // Read a string input
-        System.out.print("Enter your name: ");
-        String name = scanner.nextLine();
-        System.out.println("Hello, " + name + "!");
+        public static void main(String[] args) {
+            // Create a Scanner object for user input
+            Scanner scanner = new Scanner(System.in);
 
-        // Read an integer input
-        System.out.print("Enter your age: ");
-        int age = scanner.nextInt();
-        System.out.println("You are " + age + " years old.");
+            // Ask the user to enter the first number
+            System.out.print("Enter the first number: ");
+            double num1 = scanner.nextDouble();
 
-        // Read a double input
-        System.out.print("Enter your height in meters: ");
-        double height = scanner.nextDouble();
-        System.out.println("Your height is " + height + " meters.");
+            // Ask the user to enter the second number
+            System.out.print("Enter the second number: ");
+            double num2 = scanner.nextDouble();
 
-        // Perform a calculation with the inputs
-        System.out.println("In five years, you will be " + (age + 5) + " years old.");
+            // Ask the user to choose an operation
+            System.out.print("Choose an operation (+, -, *, /): ");
+            char operator = scanner.next().charAt(0);
 
-        // Close the scanner
-        scanner.close();
+            double result;
+
+            // Perform the selected operation
+            switch (operator) {
+                case '+':
+                    result = num1 + num2;
+                    System.out.println("The result of " + num1 + " + " + num2 + " is: " + result);
+                    break;
+
+                case '-':
+                    result = num1 - num2;
+                    System.out.println("The result of " + num1 + " - " + num2 + " is: " + result);
+                    break;
+
+                case '*':
+                    result = num1 * num2;
+                    System.out.println("The result of " + num1 + " * " + num2 + " is: " + result);
+                    break;
+
+                case '/':
+                    // Check if the second number is zero to avoid division by zero
+                    if (num2 != 0) {
+                        result = num1 / num2;
+                        System.out.println("The result of " + num1 + " / " + num2 + " is: " + result);
+                    } else {
+                        System.out.println("Error: Division by zero is not allowed.");
+                    }
+                    break;
+
+                default:
+                    System.out.println("Invalid operator. Please choose +, -, *, or /.");
+                    break;
+            }
+
+            // Close the scanner
+            scanner.close();
+        }
     }
-}
